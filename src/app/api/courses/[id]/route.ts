@@ -13,6 +13,9 @@ export async function PUT(request: Request, {params}: {params:{id: string}}){
 
 export async function GET(request: Request, {params}: {params:{id: string}}){
     const {id} = params
+    if (!params || !params.id) {
+        return NextResponse.json({ error: "ID berilmagan" }, { status: 400 });
+    }
     await ConnectMonogDB();
     const courses = await Course.findOne({ _id: new ObjectId(id) })
     return NextResponse.json({courses}, {status: 200})
