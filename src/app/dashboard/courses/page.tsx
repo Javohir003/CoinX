@@ -5,10 +5,12 @@ import { ICourse } from "@/types/type";
 import Link from "next/link";
 import { getStableColor } from "../../../../constants/page";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001/api";
+
 
 const getCourse = async()=> {
   try{
-    const res = await fetch("http://localhost:3001/api/courses", {
+    const res = await fetch(`${API_URL}/courses`, {
       cache: "no-store" 
     })
 
@@ -42,9 +44,7 @@ async function CourseAll() {
       {courses?.length < 1 && <h1>Sizda Datalar yuq</h1>}
       <div className="w-full grid grid-cols-4 gap-4">
         {courses?.map((item, id)=> {
-          let titleS = item.courseTitle.split(" ")[0]
-          let randomColor = getStableColor(item._id.toString())     
-          
+          let titleS = item.courseTitle.split(" ")[0]          
           return(
             <div key={id} className={`border drop-shadow-sm shadow-black rounded-lg overflow-hidden `}>
               <Link href={`/dashboard/courses/${item._id}`} className={`mb-4 relative flex top-0 left-0 w-full h-[200px]`} style={{backgroundColor: getStableColor(item._id.toString())}}>

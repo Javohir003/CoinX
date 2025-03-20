@@ -2,6 +2,7 @@ import ConnectMonogDB from "@/lib/mongodb";
 import Course from "@/models/Course";
 import { NextResponse } from "next/server";
 
+
 export async function POST(request: Request){
     const {courseTitle, teacher, coin} = await request.json();
     await ConnectMonogDB();
@@ -20,5 +21,4 @@ export async function DELETE(request: Request){
     await ConnectMonogDB();
     await Course.findByIdAndDelete(id);
     return NextResponse.json({message: "Course deleted successfully"}, {status: 200});
-
 }

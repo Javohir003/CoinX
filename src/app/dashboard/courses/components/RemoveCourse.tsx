@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useRouter } from "next/navigation"
@@ -5,11 +6,14 @@ import { useRouter } from "next/navigation"
 function RemoveCourse({ id }: { id: any }) {
     const router = useRouter()
 
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001/api";
+
+
     const removeCourse = async () => {
         const confirmed = confirm("O'chirishni xoxlaysizmi !!!")
 
         if(confirmed){
-            const res =  await fetch(`http://localhost:3001/api/courses?id=${id}`, {
+            const res =  await fetch(`${API_URL}/courses?id=${id}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",

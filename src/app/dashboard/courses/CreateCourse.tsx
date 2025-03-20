@@ -13,6 +13,7 @@ import {
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+
 function CreateCourse() {
   const [courseTitle, setCourseTitle] = useState("")
   const [teacher, setTeacher] = useState("")

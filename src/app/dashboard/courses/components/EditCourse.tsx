@@ -4,9 +4,12 @@
 
 import { Pencil } from 'lucide-react';
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001/api";
+
+
 const getCourseByID = async (id: string) => {
   try {
-    const res = await fetch(`http://localhost:3001/api/courses/${id}`, {
+    const res = await fetch(`${API_URL}/courses/${id}`, {
       cache: "no-store"
     })
     if (!res.ok) {
