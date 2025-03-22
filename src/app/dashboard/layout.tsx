@@ -16,19 +16,19 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <Image src={Logo} alt="Logo" />
         </article>
         <ul className="mb-16">
-          <Link href={"/dashboard"} className="group flex items-center gap-2 py-5 px-2 border-b rounded hover:bg-orange-400 hover:text-white cursor-pointer transition-all duration-200">
+          <Link href={"/dashboard"} className="group flex items-center gap-2 py-5 px-2 border-b hover:bg-orange-400 hover:text-white cursor-pointer transition-all duration-200">
             <RxDashboard className="text-[25px] flex justify-center items-center group-hover:stroke-white duration-0" /> Dashboard
           </Link>
-          <Link href={"/dashboard/courses"} className="group flex items-center gap-2 py-5 px-2 border-b rounded hover:bg-orange-400 hover:text-white cursor-pointer transition-all duration-200">
+          <Link href={"/dashboard/courses"} className="group flex items-center gap-2 py-5 px-2 border-b hover:bg-orange-400 hover:text-white cursor-pointer transition-all duration-200">
             <GraduationCap className="text-[30px] flex justify-center items-center group-hover:stroke-white duration-0" /> Course
           </Link>
-          <Link href={"/dashboard/students"} className="group flex items-center gap-2 py-5 px-2 border-b rounded hover:bg-orange-400 hover:text-white cursor-pointer transition-all duration-200">
+          <Link href={"/dashboard/students"} className="group flex items-center gap-2 py-5 px-2 border-b hover:bg-orange-400 hover:text-white cursor-pointer transition-all duration-200">
             <Users className="text-[30px] flex justify-center items-center group-hover:stroke-white duration-0" /> Student
           </Link>
-          <Link href={"/dashboard/coins"} className="group flex items-center gap-2 py-5 px-2 border-b rounded hover:bg-orange-400 hover:text-white cursor-pointer transition-all duration-200">
+          <Link href={"/dashboard/coins"} className="group flex items-center gap-2 py-5 px-2 border-b hover:bg-orange-400 hover:text-white cursor-pointer transition-all duration-200">
             <BsCoin className="text-[27px] flex justify-center items-center group-hover:stroke-white duration-0" /> Coins
           </Link>
-          <li className="group flex items-center gap-2 py-5 px-2 border-b rounded hover:bg-orange-400 hover:text-white cursor-pointer transition-all duration-200">
+          <li className="group flex items-center gap-2 py-5 px-2 border-b hover:bg-orange-400 hover:text-white cursor-pointer transition-all duration-200">
             <PiHandCoinsDuotone className="text-[30px] flex justify-center items-center group-hover:stroke-white duration-0" /> Add Coins
           </li>
         </ul>

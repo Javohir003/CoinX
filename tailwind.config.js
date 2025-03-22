@@ -9,9 +9,6 @@ module.exports = {
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  safelist: [
-    { pattern: /bg-\[#([a-f0-9]{6})\]/ }, // bg-[#xxxxxx] ranglarini qo‘shish
-  ],
   theme: {
   	extend: {
   		borderRadius: {

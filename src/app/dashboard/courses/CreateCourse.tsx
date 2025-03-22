@@ -1,5 +1,6 @@
 "use client"
 
+import { postCourse } from "@/actions/course.action";
 import {
   Sheet,
   SheetClose,
@@ -17,36 +18,23 @@ import { useState } from "react";
 function CreateCourse() {
   const [courseTitle, setCourseTitle] = useState("")
   const [teacher, setTeacher] = useState("")
-  const [coin, setCoin] = useState("");
   const [open, setOpen] = useState(false)
   const router = useRouter()
 
 
   const totalValue = async (e: React.MouseEvent) => {
     e.preventDefault()
-    if (!courseTitle || !teacher || !coin) {
+    if (!courseTitle || !teacher) {
       alert("Sizdagi karobkalar bo'sh")
       return;
     }
 
     try {
-      const res = await fetch("http://localhost:3001/api/courses", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({ courseTitle, teacher, coin })
-      })
-      if (res.ok) {
-
-        setCoin("")
+        await postCourse(courseTitle, teacher)
         setCourseTitle("")
         setTeacher("")
         setOpen(false); // ✅ Sheet'ni yopish
         router.push("/dashboard/courses"); // ✅ Sahifani yangilash
-      } else {
-        throw new Error("Failed not found dashboard/courses");
-      }
     } catch (error) {
       console.log('Sizdagi karobkalar xatolikka uchradi', error);
 
@@ -78,10 +66,6 @@ function CreateCourse() {
             <label className="flex gap-2 text-[#d47323cd] flex-col mb-5" htmlFor="kurs">
               Teacher ismi
               <input onChange={(e) => setTeacher(e.target.value)} value={teacher} className="py-2 border rounded-md px-2 text-gray-700" id="kurs" type="text" placeholder="Teacher ismini kiriting !" />
-            </label>
-            <label className="flex gap-2 text-[#d47323cd] flex-col" htmlFor="kurs">
-              Coin davomiyligi
-              <input onChange={(e) => setCoin(e.target.value)} value={coin} className="py-2 border rounded-md px-2 text-gray-700" id="kurs" type="text" placeholder="Coin Saqlash muddatini kiriting !" />
             </label>
           </div>
           <SheetFooter>
