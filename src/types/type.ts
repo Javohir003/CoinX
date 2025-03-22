@@ -4,6 +4,7 @@ export interface IProduct{
     id: number,
     image: string | StaticImageData,
     title: string,
+    coin: number,
     description: string,
     qolganproduct: number,
     levelRequired: number
